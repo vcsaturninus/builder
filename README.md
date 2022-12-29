@@ -2,6 +2,7 @@
 
 Generic sdk builder for automatic and 'dev' containizer builds
 
+ * [TLDR](#Tldr)
  * [Problem Statement](#problem-statement)
     * [Automation](#automation)
     * [Development setups](#development-setups)
@@ -21,6 +22,22 @@ Generic sdk builder for automatic and 'dev' containizer builds
  * [Notes](#notes)
 
 --------------------------------------------------------------------
+
+## Tldr
+
+Install necessary dependencies:
+```
+pip3 install -r spec/depends/requirements.txt
+```
+
+Build automated sdk for `<target>`:
+```
+./builder.py --cores=$(nproc) --target <target>
+```
+Or build dev sdk for `<target>`:
+```
+./builder.py --cores=$(nproc) --target <target> --devbuild
+```
 
 ## Problem Statement
 
