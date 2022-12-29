@@ -1,0 +1,26 @@
+{
+    "$schema" : "http://json-schema.org/draft-07/schema#",
+    "title" : "Schema for specification of host-container mounts",
+    "description": "Paths to mount inside the container from the host",
+    "type" : "object",
+    "patternProperties": {
+        "^.*$" : {
+            "type": "object",
+            "description": "a mount specification of the form 'source': <source>, 'target': <target>, 'type': <type>",
+            "properties" : {
+                "source" : {
+                    "type" : "string"
+                },
+                "target" : {
+                    "type": "string"
+                },
+                "type" : {
+                    "$ref": "./enum/mount_types.json"
+                }
+            },
+            "additionalProperties": false,
+            "required": ["source", "target", "type"]
+        }
+    },
+    "additionalProperties": false
+}

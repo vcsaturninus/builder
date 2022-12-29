@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "build-step enum",
+    "description": "Enumeration of supported steps in the sdk build process",
+    "type": "string",
+    "enum": [
+        "prepare_system",
+        "populate_staging_dir",
+        "checkout",
+        "install_configs",
+        "build",
+        "build_container_image",
+        "retrieve_build_artifacts"
+	]
+}
+

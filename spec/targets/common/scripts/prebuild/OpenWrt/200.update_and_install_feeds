@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd "${SDK_TOPDIR:?}"
+printf " ~ Updating and installing feeds ...\n"
+./scripts/feeds update -a
+./scripts/feeds install -a

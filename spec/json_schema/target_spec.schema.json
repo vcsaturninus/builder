@@ -1,0 +1,66 @@
+{
+    "$schema" : "http://json-schema.org/draft-07/schema#",
+    "title" : "Target specification",
+    "description": "Custom variables and configuration parameters necessary for building TARGET",
+    "type" : "object",
+    "properties" : {
+        "target": {
+            "description": "name of the target",
+            "type": "string",
+            "$ref": "./enum/targets.json"
+        },
+        "sdk_name" : {
+            "description" : "name of the SDK being used (must be one of the supported values)",
+            "type" : "string",
+            "$ref" : "./enum/sdk.json"
+        },
+        "sdk_url": {
+            "description" : "Url to download sdk from",
+            "type": "string"
+        },
+        "sdk_tag": {
+            "description" : "The branch or exact tag to check out once the SDK has been cloned",
+            "type": "string"
+        },
+        "external_toolchain": {
+            "description": "Does the sdk require an external toolchain for the build?",
+            "type": "boolean"
+        },
+        "external_toolchain_URL": {
+            "description" : "Where to download the external toolchain from, if 'external_toolchain' is True",
+            "type" : "string"
+        },
+        "build_artifacts_archive_name" : {
+            "description": "The name of the .tar.gz archive containing the build artifacts, if saved. Do not specify the extension",
+            "type": "string"
+        },
+        "title": {
+            "type": "string",
+            "description": "a title for the instance"
+        },
+        "description": {
+            "type": "string",
+            "description": "a description of the instance itself"
+        },
+        "schema": {
+            "type": "string",
+            "description": "relative path to the schema to use (this schema)"
+        },
+        "environment": {
+            "$ref": "./environment.schema.json"
+        }
+    },
+    "required" : [
+        "sdk_name",
+        "sdk_url", 
+        "sdk_tag", 
+        "external_toolchain", 
+        "build_artifacts_archive_name",
+        "environment"
+    ],
+    "dependent_required": {
+        "external_toolchain": ["external_toolchain_URL"]
+    },
+    "additionalProperties" : false,
+    "$comment" : "additionalProperties is true to allow for the use of '$schema' and annotations in the instance"
+}

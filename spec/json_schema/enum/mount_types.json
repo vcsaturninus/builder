@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "build-step enum",
+    "description": "Enumeration of supported mount types into the container",
+    "type": "string",
+    "$comment": "Only bind mounts are currently supported. They are the most basic and supported by any container technology e.g. LXC containers. Volumes feel too docker specific. This should be kept as general as possible (even though, of course, the only container tech being relied on at the moment is in fact docker :) )",
+    "enum": [
+        "bind"
+    ]
+}
+

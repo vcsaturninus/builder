@@ -1,0 +1,23 @@
+{
+    "$schema" : "http://json-schema.org/draft-07/schema#",
+    "title" : "Schema for environment variables",
+    "description": "Environment variables to set before any sort of build (key-value pairs)",
+    "type" : "object",
+    "properties": {
+        "variables": {
+            "type": "object",
+            "description": "a {k : v} map",
+            "patternProperties" : {
+                "^.*$" : { 
+                    "type" : "string"
+                }
+            }
+        },
+        "schema": {
+            "type" : "string",
+            "description": "relative path to the schema to use (this schema)"
+        }
+    },
+    "additionalProperties": false,
+    "required": ["variables"]
+}

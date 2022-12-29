@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "build-step enum",
+    "description": "Enumeration of supported steps in the sdk build process",
+    "type": "string",
+    "enum": [
+        "host",
+        "container"
+    ]
+}
+

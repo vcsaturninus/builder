@@ -1,0 +1,28 @@
+{
+	"schema" : "build_steps.schema.json",
+	"title" : "Sequence of steps for building an automated completely containerized sdk",
+	"description": "Do everything inside container without any user input. Do not use host mounts and such",
+	"steps": [
+        { 
+           "populate_staging_dir": "host" 
+        },
+        {
+           "build_container_image": "host"
+        },
+        {
+           "prepare_system" : "container" 
+        },
+        {
+           "checkout" : "container"
+        },
+        {
+           "install_configs" : "container"
+        },
+        {
+           "build" : "container"
+        },
+        {
+           "retrieve_build_artifacts":"host"
+        }
+	]
+}

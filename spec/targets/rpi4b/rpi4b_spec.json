@@ -1,0 +1,14 @@
+{
+    "schema" : "target_spec.schema.json",
+    "target": "rpi4b",
+    "sdk_name" : "OpenWrt",
+    "sdk_url" : "https://git.openwrt.org/openwrt/openwrt.git",
+    "sdk_tag" : "openwrt-22.03",
+    "external_toolchain": false,
+    "build_artifacts_archive_name": "artifacts",
+    "environment" : {
+        "variables": {
+            "__DUMMYVAR__" : "dummy"
+        }
+    }
+}

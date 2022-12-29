@@ -1,0 +1,21 @@
+{
+    "schema" : "developer.schema.json",
+    "description": "basic dev configuration file",
+    "environment" : {
+        "variables": {
+            "BUILD_BRANCHES" : "fix-copilation-bug alpha1.0"
+        }
+    },
+    "mounts" : {
+        "home": {
+            "source" : "/home/dummyuser",
+            "target" : "host",
+            "type": "bind"
+        },
+        "ubus-sources": {
+            "source" : "/home/dummyuser/code/ubus",
+            "target" : "/home/dev/OpenWrt_openwrt-22.03/build_dir/target-aarch64_cortex-a72_musl/ubus-2022-06-01-2bebf93c",
+            "type"   : "bind"
+        }
+    }
+}

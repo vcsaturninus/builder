@@ -1,0 +1,28 @@
+{
+	"schema" : "build_steps.schema.json",
+	"title" : "Sequence of steps for building an sdk setup particularly suited to development",
+	"description": "Build only minimal container image and clone sdk on the host. Use host mounts and let developers override/extend mount and env specs.",
+	"steps": [
+        { 
+           "populate_staging_dir": "host" 
+        },
+        {
+           "checkout": "host"
+        },
+        {
+           "build_container_image": "host"
+        },
+        {
+            "prepare_system" : "container"
+        },
+        {
+           "install_configs": "container"
+        },
+        {
+           "build" : "host"
+        },
+        {
+           "retrieve_build_artifacts": "host"
+        }
+	]
+}

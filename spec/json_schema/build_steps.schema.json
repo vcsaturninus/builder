@@ -1,0 +1,39 @@
+{
+    "$schema" : "http://json-schema.org/draft-07/schema#",
+    "title" : "build steps schema",
+    "description": "the build system can build sdks in two different flavors: development where the sdk gets cloned on the host and then mounted in a container, or automated where everything happens inside docker and nothing gets cloned on the host aside from any initial setup-required files. The former is more suited for development use, the latter is better for automated builds. The division of build steps to perform is therefore split up differently between host_steps and container_steps in the case of either flavor mentioned above",
+    "type" : "object",
+    "properties" : {
+        "steps": {
+            "description" : "steps to carry out as part of the sdk build process" ,
+            "type": "array",
+            "items": {
+                "type" : "object",
+                "description": "a map of a build step name and its execution context eg (host|container)",
+                "propertyNames": {
+                    "$ref": "./enum/steps.json"
+                },
+                "patternProperties" : {
+                    "^.*$" : {
+                        "$ref": "./enum/execution_contexts.json"
+                    }
+                },
+                "additionalProperties": false
+            }
+        },
+        "description" : {
+            "type" : "string",
+            "description": " a description of the instance itself"
+        },
+        "title": {
+            "type": "string",
+            "description": " a title for the instance itself"
+        },
+        "schema": {
+            "type": "string",
+            "description": "relative path to the schema to use (this schema)"
+        }
+    },
+    "required" : ["steps"],
+    "additionalProperties" : false
+}

@@ -1,0 +1,6 @@
+{
+	"schema" : "environment.schema.json",
+    "variables" : {
+        "BUILD_BRANCH" : "alpha-100"
+    }
+}
