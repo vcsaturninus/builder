@@ -1,4 +1,4 @@
-# newer, on 22.04, works just as well
+# newer version where available works just as well
 # docker==6.0.1
 docker==4.1.0
 jsonschema==4.17.3
