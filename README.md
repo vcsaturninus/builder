@@ -189,7 +189,7 @@ responsible for this.
 ### Build Artifacts
 
 **IF** the target has provided scripts for retrieving build artifacts
-(see ![here](spec/targets/rpi4b/scripts/postbuild/401.retrieve_build_artifacts.sh)
+(see [here](spec/targets/rpi4b/scripts/postbuild/401.retrieve_build_artifacts.sh)
 for example), then `builder` will make available a tarball (the name of which is
 configurable) in the `out` directory of this project. The tarball, besides and
 independent of the target-specific artifacts, will contain a `timestamp` file
@@ -226,7 +226,7 @@ the container is automatically deleted on exit. E.g.
 
 ## Adding a New Target
 
-A ![target](spec/targets/rpi4b) has already been added for example purposes.
+A [target](spec/targets/rpi4b) has already been added for example purposes.
 Any new target should create a similar directory and follow the same structure.
 
 Briefly, the following are necessary:
@@ -544,7 +544,7 @@ to allow the user to e.g. maintain separate per-target profiles. E.g.
 ```
 
 The contents of such a configuration file are minimal and when found/specified,
-the file is checked for compliance with ![the relevant schema](spec/json_schema/developer.schema.json).
+the file is checked for compliance with [the relevant schema](spec/json_schema/developer.schema.json).
 The file allows for specification of environment variables and mounts in the
 expected format.
 
@@ -555,7 +555,7 @@ different build branches, enable/disable certain behaviors based on environment
 variables, or strategically mount directories in places of interest to speed up
 the workflow and obtain artifacts of interest.
 
-Taking another look at the basic ![dev config file example](example.developer.json),
+Taking another look at the basic [dev config file example](example.developer.json),
 one thing of note is the `ubus-source` property of the `mounts` object.
 This tells `builder` to mount `/home/dummyuser/code/ubus` into
 `/home/dev/OpenWrt_openwrt-22.03/build_dir/target-aarch64_cortex-a72_musl/ubus-2022-06-01-2bebf93c`
