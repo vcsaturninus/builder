@@ -215,6 +215,7 @@ sanitize_cli(args)
 
 # guards for certain actions and prints
 build_mode  = not (args.populate_staging or args.container or args.list_targets or args.validate_jsons)
+
 interactive = args.container
 # excessive verbosity is inconvenient by default
 verbose    = not args.quiet and (build_mode or args.verbose)
@@ -268,7 +269,6 @@ else:
         utils.log(f" > Validating {developer_config} against schema ...")
         utils.validate_json_against_schema(developer_config, schemas_dir)
 
-    # PN: these are still needed;
     confvars = {
             'sdk_build_type'    : sdk_build_type,
             'num_build_cores'   : str(num_build_cores),
@@ -287,7 +287,7 @@ else:
     sdk = sdk.get_sdk_for(target)(tgspec, paths, confvars)
     utils.log(f" ** steps: {steps['steps']}", cond=(build_mode and not restricted_build))
     utils.log(f" ** environment: {sdk.get_env_vars(inherit=False)}")
-    utils.log(f" ** mounts: {sdk.get_mounts()}")
+    utils.log(f" ** mounts: {sdk.get_mounts(validate=False)}")
     utils.log(f" ** confvars: {confvars}")
 
     if args.only_packages:

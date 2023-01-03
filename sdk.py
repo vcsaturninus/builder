@@ -140,7 +140,7 @@ class Concrete_sdk(Sdk):
 
         return {**inherited, **defaults, **configured, **overrides}
     
-    def get_mounts(self):
+    def get_mounts(self, validate=True):
         mounts=[]
         if self.conf["sdk_build_type"] != "dev":
             return mounts
@@ -159,7 +159,7 @@ class Concrete_sdk(Sdk):
         mounts.append(sdk_root)
         mounts.append(staging)
         mounts += self.conf.get('mount_overrides') or {}
-        return utils.validate_mounts(mounts)
+        return utils.validate_mounts(mounts) if validate else mounts
 
     def run_scripts(self, path):
         scripts = utils.get_sorted_script_list(path)

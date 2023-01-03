@@ -29,6 +29,8 @@ def strip_sgr(s):
     return re.sub(pattern, '', s)
 
 def strip_quoted_newlines(s):
+    if not s:
+        return s
     if s[-1] == "'" or s[-1] == '"':
         s = s[:-1]
     return s.rstrip()
