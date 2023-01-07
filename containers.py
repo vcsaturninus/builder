@@ -129,7 +129,8 @@ class Docker_containers(Containers):
             tag = tag,
             path = container_config,
             buildargs = kwargs,
-            nocache=nocache
+            nocache=nocache,
+            rm=True
             )
         for chunk in stream:
             if 'stream' in chunk:
