@@ -276,7 +276,7 @@ class Concrete_sdk(Sdk):
                 "QUIET_MODE_CLI_FLAG" : not self.conf["verbose"] and "--quiet" or "",
                 "NUM_BUILD_CORES_CLI_FLAG" : "--cores=" + self.conf["num_build_cores"],
                 "BUILD_ARTIFACTS_OUTDIR" : self.paths.get(context='container', label='outdir'),
-                "DEV_BUILD_CLI_FLAG" : (self.conf["sdk_build_type"] == "dev") and "-m" or ""
+                "DEV_BUILD_CLI_FLAG" : (self.conf["sdk_build_type"] == "dev") and "-d" or ""
                 }
         print(build_args)
         stream = self.containers.build_image(
