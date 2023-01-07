@@ -14,7 +14,7 @@ import containers
 import sdk
 import settings
 
-def clean_up_paths(*paths):
+def clean_up_paths(paths):
     for path in paths:
         shutil.rmtree(path, ignore_errors=True)
         os.makedirs(path)
@@ -249,8 +249,10 @@ else:
         print_known_targets(paths.tgroot)
         raise LookupError(f"Target specified ('{target}') not supported")
     
-    paths_to_clean = [paths.tmpdir, paths.outdir]
-    clean_up_paths(paths.tmpdir, paths.outdir)
+    paths_to_clean = [paths.tmpdir]
+    if not interactive:
+        paths_to_clean.append(paths.outdir)
+    clean_up_paths(paths_to_clean)
     utils.log(f" > Cleaning up {paths_to_clean}")
 
     utils.log(f" ** SDK type:   '{sdk_build_type}'")
