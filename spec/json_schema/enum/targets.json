@@ -4,7 +4,8 @@
     "description": "Enumeration of supported targets",
     "type": "string",
     "enum": [
-        "rpi4b"
+        "rpi4b",
+        "x86_glibc"
     ]
 }
 

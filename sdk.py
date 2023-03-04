@@ -412,6 +412,10 @@ class rpi4b_sdk(OpenWrt_sdk):
     def __init__(self, spec, paths, configs):
         super().__init__(spec, paths, configs)
 
+class x86_glibc_sdk(OpenWrt_sdk):
+    def __init__(self, spec, paths, configs):
+        super().__init__(spec, paths, configs)
+
 def get_sdk_for(target):
     modname   = __name__
     classname = f"{target}_sdk"
