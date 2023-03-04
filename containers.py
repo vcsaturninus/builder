@@ -130,6 +130,7 @@ class Docker_containers(Containers):
             path = container_config,
             buildargs = kwargs,
             nocache=nocache,
+            network_mode='host',
             rm=True
             )
         for chunk in stream:

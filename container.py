@@ -76,7 +76,7 @@ class Docker(Container):
         There's no simple way to get a cli-interactive container instance via the python API.
         As such,  we'll need to call the docker cli client instead in a subprocesss.
         """
-        cli = f"docker run {'--rm' if self.ephemeral else ''}"
+        cli = f"docker run {'--rm' if self.ephemeral else ''} --net=host"
         for k,v in self.env.items():
             cli += f" -e '{k}={v}'"
         for host_path,container_path,mount_type in self.mount_tuples:
@@ -97,7 +97,8 @@ class Docker(Container):
                 command=cmd,
                 environment=self.env,
                 mounts = mounts,
-                detach=True
+                detach=True,
+                network='host'
                 )
         self.container = container
     
