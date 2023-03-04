@@ -98,7 +98,7 @@ class Docker(Container):
                 environment=self.env,
                 mounts = mounts,
                 detach=True,
-                network='host'
+                network_mode='host'
                 )
         self.container = container
     
