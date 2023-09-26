@@ -2,4 +2,5 @@ __pycache__
 .tmp/
 out/
 staging
-tags
+tags*
+OpenWrt_*

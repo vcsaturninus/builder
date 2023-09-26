@@ -16,6 +16,10 @@
                 "type": "string",
                 "description": "relative path to the schema to use (this schema)"
             },
+            "builder_dir": {
+                "type": "string",
+                "description": "absolute path to the 'builder' directory where the associated dev-build (that you intend to use) for this target was performed"
+            },
             "environment": {
                 "$ref": "./environment.schema.json"
             },
@@ -25,7 +29,8 @@
         },
         "required" : [
             "environment",
-            "mounts"
+            "mounts",
+            "builder_dir"
         ],
         "additionalProperties" : false
 }

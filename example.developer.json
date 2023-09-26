@@ -1,6 +1,7 @@
 {
     "schema" : "developer.schema.json",
     "description": "basic dev configuration file",
+    "builder_dir": "/home/vcsaturninus/common/repos/builder",
     "environment" : {
         "variables": {
             "BUILD_BRANCHES" : "fix-copilation-bug alpha1.0"
